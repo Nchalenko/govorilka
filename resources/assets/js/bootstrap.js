@@ -1,14 +1,25 @@
 
 window._ = require('lodash');
 
+window.tinymce = require('tinymce');
+
+require('tinymce/themes/modern/theme');
+
+require('tinymce/skins/lightgray/skin.min.css');
+require('tinymce/skins/lightgray/content.min.css');
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
  */
 
+
 try {
     window.$ = window.jQuery = require('jquery');
+    window.fineUploader = require('fine-uploader/lib/all.js');
+
+    console.log(fineUploader);
 
     require('bootstrap-sass');
 } catch (e) {}

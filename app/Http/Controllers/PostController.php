@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Post;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $posts = Article::latest()->get();
-
-        return view('posts.index', compact('posts'));
+        return view('post');
     }
 
     /**
@@ -26,7 +24,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('create');
     }
 
     /**
@@ -43,7 +41,7 @@ class ArticleController extends Controller
             ]
         );
 
-        Article::create([
+        Post::create([
             'user_id' => 2,
             'body' => '123 body',
             'is_completed' => 1,
@@ -55,21 +53,21 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Article  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $post)
+    public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Article  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $post)
+    public function edit(Post $post)
     {
         //
     }
@@ -78,23 +76,22 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Article  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $post)
+    public function update(Request $request, Post $post)
     {
-        Article::update();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Article  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $post)
+    public function destroy(Post $post)
     {
-        Article::destroy($post);
+        //
     }
-    
 }
