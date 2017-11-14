@@ -30,32 +30,32 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9" style="margin-left: 15%;">
-            <form role="form">
+                <form role="form" method="POST" action="/posts" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
                         <label for="title">Post Title:</label>
-                        <input type="text" class="form-control" id="title" onkeyup="title_edit(this)"/>
+                        <input type="text" class="form-control" name="title" id="title" onkeyup="title_edit(this)" />
                         <div class="header">
-                            <script type="text/javascript">tinymce.init({ selector:'textarea' });</script>
                             <label for="header">Header:</label>
-                            <textarea id="header"></textarea>
+                            <textarea name="header" id="header"></textarea>
                         </div>
                         <div class="body">
-                            <script type="text/javascript">tinymce.init({ selector:'textarea' });</script>
                             <label for="body">Body:</label>
-                            <textarea id="body"></textarea>
+                            <textarea name="body" id="body"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Big image:</label>
-                        <input type="file" id="exampleInputFile"/>
+                        <input type="file" id="exampleInputFile" name="big_image" />
                         <p class="help-block">Example block-level help text here.</p>
 
                         <label for="exampleInputFile">500x500 image:</label>
-                        <input type="file" id="exampleInputFile"/>
+                        <input type="file" id="exampleInputFile" name="500_image" />
                         <p class="help-block">Example block-level help text here.</p>
 
                         <label for="exampleInputFile">Circle image:</label>
-                        <input type="file" id="exampleInputFile"/>
+                        <input type="file" id="exampleInputFile" name="circle_image" />
                         <p class="help-block">Example block-level help text here.</p>
                     </div>
                     <button type="submit" class="btn btn-success" style="width: 100%; margin-bottom: 50px;">Submit</button>

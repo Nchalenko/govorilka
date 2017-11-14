@@ -17,9 +17,6 @@ require('tinymce/skins/lightgray/content.min.css');
 
 try {
     window.$ = window.jQuery = require('jquery');
-    window.fineUploader = require('fine-uploader/lib/all.js');
-
-    console.log(fineUploader);
 
     require('bootstrap-sass');
 } catch (e) {}
