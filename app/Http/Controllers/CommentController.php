@@ -9,13 +9,32 @@ use Auth;
 
 class CommentController extends Controller
 {
+
+    public         $secret       = '6LcsqTgUAAAAANyv7ohJrVsvapxEuuMl37OXsxe_';
+
     public function comment(Post $post)
     {
-        $this->validate(\request(),
-            [
-                'comment' => 'required',
-                'g-recaptcha-response' => 'required'
-            ]);
+//        error_log(print_r(\request()->post(),1));
+
+
+        $post = \request()->post();
+        $ip = \request()->ip();
+
+        $recaptcha = new \ReCaptcha\ReCaptcha($this->secret, new \ReCaptcha\RequestMethod\CurlPost());
+
+        $response = $recaptcha->verify($post['g-recaptcha-response'], $ip);
+
+
+        if (!$response->isSuccess()) {
+            throw new \Exception('ReCaptcha was not validated.');
+        }
+//
+//        $this->validate(\request(),
+//            [
+//                'comment' => 'required',
+//                '_token' => 'required',
+////                'g-recaptcha-response' => 'required'
+//            ]);
 
         $comment = [
             'post_id' => intval($post->id) ? $post->id : 0,

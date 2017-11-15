@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-Route::get('/posts/create', 'PostController@create');
+Route::get('/posts/create', 'PostController@create')->middleware('admin');;
 
 Route::get('/article', 'HomeController@article')->name('post');
 Route::get('/about', 'HomeController@about')->name('about');
@@ -21,15 +21,21 @@ Route::post('/contact', 'ContactController@create')->name('post_contact');
 Route::post('/save_image', 'HomeController@save_image')->name('save_image');
 
 Route::get('/posts', 'PostController@index');
-Route::post('/posts', 'PostController@store');
+Route::post('/posts', 'PostController@store')->name('store');
 
 Route::get('/posts/{post}', 'PostController@show');
 
 Route::post('/posts/{post}/comment', 'CommentController@comment')->name('comment');
 
-Route::post('/posts/{post}/edit', 'PostController@show');
+Route::get('/posts/{post}/edit', 'PostController@edit')->name('post_edit');
 
 Route::delete('/posts/{post}', 'PostController@delete');
 Route::get('/', 'PostController@index')->name('home');
+
+
+
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+Route::get('/admin/posts', 'AdminController@posts')->name('admin_posts')->middleware('admin');
+Route::get('/admin/contacts', 'AdminController@contacts')->name('admin_contacts')->middleware('admin');
 
 //Route::post('/posts/{post}/comment', 'CommentsController@store');

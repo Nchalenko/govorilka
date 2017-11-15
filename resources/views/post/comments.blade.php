@@ -12,7 +12,7 @@
             <div class="col-sm-7">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
+                        <strong>myusername</strong> <span class="text-muted">commented {{ $comment->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="panel-body comment-body">{{$comment->comment}}</div><!-- /panel-body -->
                 </div><!-- /panel panel-default -->
@@ -46,7 +46,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <!-- Replace data-sitekey with your own one, generated at https://www.google.com/recaptcha/admin -->
-                            <div class="g-recaptcha" data-sitekey="6LcsqTgUAAAAAF42EntG1uZJoJaODX6M3TugWKhc"></div>
+                            <div class="g-recaptcha" data-callback="onloadCallback" data-sitekey="6LcsqTgUAAAAAF42EntG1uZJoJaODX6M3TugWKhc"></div>
 
                         </div>
                     </div>
@@ -62,3 +62,4 @@
 
 </div> <!-- /.row-->
 
+{{--<script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onScriptLoad" async defer></script>--}}

@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->char('title');
             $table->char('header');
             $table->text('body');
+            $table->tinyInteger('is_active');
             $table->timestamps();
         });
     }
