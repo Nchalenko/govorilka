@@ -5,7 +5,7 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img class="first-slide" src="{{ URL::asset('/images/' . 1 . '__big_image.jpg') }}" alt="First slide">
+                <img class="first-slide" src="{{ URL::asset('/images/' . $post->id . '__big_image.jpg') }}" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1 id="name">О нас</h1>
