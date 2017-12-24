@@ -26,6 +26,7 @@ Route::post('/posts', 'PostController@store')->name('store');
 Route::get('/posts/{post}', 'PostController@show');
 
 Route::post('/posts/{post}/comment', 'CommentController@comment')->name('comment');
+Route::get('/posts/{post}/change_status', 'PostController@change_status')->name('change_status');
 
 Route::get('/posts/{post}/edit', 'PostController@edit')->name('post_edit');
 
@@ -37,5 +38,6 @@ Route::get('/', 'PostController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/admin/posts', 'AdminController@posts')->name('admin_posts')->middleware('admin');
 Route::get('/admin/contacts', 'AdminController@contacts')->name('admin_contacts')->middleware('admin');
+Route::get('/admin/contacts/{contact}/change_status', 'ContactController@change_status')->name('contact_change_status')->middleware('admin');
 
 //Route::post('/posts/{post}/comment', 'CommentsController@store');

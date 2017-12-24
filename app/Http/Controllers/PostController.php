@@ -80,7 +80,7 @@ class PostController extends Controller
             $return->save();
         } else {
             $post['is_active'] = 1;
-            $post   = Post::create($post);
+            $post = Post::create($post);
             $post['id'] = $post->id;
         }
 
@@ -111,5 +111,18 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function change_status(Post $post)
+    {
+        $return = Post::find($post->id);
+        if ($post->is_active) {
+            $return->is_active = 0;
+        } else {
+            $return->is_active = 1;
+        }
+        $return->save();
+
+        return redirect('admin/posts');
     }
 }

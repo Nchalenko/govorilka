@@ -22,11 +22,13 @@
                                 <td style="width: 25%">{{ $contact->created_at }}</td>
                                 <td style="width: 25%"><a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a></td>
                                 <td style="width: 25%">
-                                    @if ($contact->status)
-                                        <button class="btn btn-primary">Disable</button>
-                                    @else
-                                        <button class="btn btn-success">Activate</button>
-                                    @endif
+                                    <a href="/admin/contacts/{{ $contact->id }}/change_status">
+                                        @if ($contact->status)
+                                            <button class="btn btn-primary">Disable</button>
+                                        @else
+                                            <button class="btn btn-success">Activate</button>
+                                        @endif
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
