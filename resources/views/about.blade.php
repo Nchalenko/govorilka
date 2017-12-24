@@ -5,6 +5,7 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+                {{--TODO-nik add about image--}}
                 <img class="first-slide" src="{{ URL::asset('/images/' . $post->id . '__big_image.jpg') }}" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption">

@@ -13,7 +13,7 @@ class PostController extends Controller
         $posts = [];
 
         foreach (Post::all() as $key => $post) {
-            if ($key < 3) {
+//            if ($key < 3) {
 //            $posts[$key]['big_image'] = $post->id . '__big_image.jpg';
 //            $posts[$key]['circle_image'] = $post->id . '__circle_image.jpg';
 //            $posts[$key]['500_image'] = $post->id . '__500_image.jpg';
@@ -21,7 +21,7 @@ class PostController extends Controller
                 $posts[$key]['big_image'] = '1__big_image.jpg';
                 $posts[$key]['circle_image'] = '1__circle_image.jpg';
                 $posts[$key]['500_image'] = '1__500_image.jpg';
-            }
+//            }
         }
 
 
@@ -72,13 +72,14 @@ class PostController extends Controller
         $post            = \request()->post();
         $post['user_id'] = 1;
 
-        if ($post['id']) {
+        if (isset($post['id'])) {
             $return = Post::find($post['id']);
             $return->title = $post['title'];
             $return->header = $post['header'];
             $return->body = $post['body'];
             $return->save();
         } else {
+            $post['is_active'] = 1;
             $post   = Post::create($post);
             $post['id'] = $post->id;
         }
@@ -94,7 +95,6 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        error_log(print_r(123,1));
         return view('post.post', compact('post'));
     }
 

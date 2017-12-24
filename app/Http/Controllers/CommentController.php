@@ -14,15 +14,14 @@ class CommentController extends Controller
 
     public function comment(Post $post)
     {
-//        error_log(print_r(\request()->post(),1));
-
+        error_log(print_r(\request()->post(),1));
 
         $post = \request()->post();
         $ip = \request()->ip();
 
         $recaptcha = new \ReCaptcha\ReCaptcha($this->secret, new \ReCaptcha\RequestMethod\CurlPost());
 
-        $response = $recaptcha->verify($post['g-recaptcha-response'], $ip);
+        $response = $recaptcha->verify($post['g_recaptcha_response'], $ip);
 
 
         if (!$response->isSuccess()) {

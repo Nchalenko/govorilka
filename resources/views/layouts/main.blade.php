@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name') }}</title>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/3.3/examples/carousel/carousel.css" rel="stylesheet">
-
-
     <script src="{{ asset('js/app.js') }}"></script>
-
 </head>
-
 <body>
 
-<!-- NAVBAR
-================================================== -->
+<!-- NAVBAR -->
 <div class="navbar-wrapper">
     <div class="container">
-
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -69,25 +56,24 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
-                            @else
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->first_name }} <span class="caret"></span>
-                                    </a>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->first_name }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
 
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                Logout
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </li>
-                                @endguest
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </div>
@@ -96,21 +82,15 @@
     </div>
 </div>
 
-@yield('content')
+    @yield('content')
 
-
-<!-- FOOTER -->
-<footer style="margin-top: 50px;">
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; {{ date('Y') }} {{ config('app.name') }}, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-</footer>
+    <!-- FOOTER -->
+    <footer style="margin-top: 50px;">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; {{ date('Y') }} {{ config('app.name') }}, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
 
 </div>
-
-{{--+++++++=================++++++++++++============+++++++++--}}
-
-
-
 
 
 <!-- Bootstrap core JavaScript
@@ -121,16 +101,12 @@
 {{--<script src="../../dist/js/bootstrap.min.js"></script>--}}
 {{--<!-- Just to make our placeholder images work. Don't actually copy the next line! -->--}}
 <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-{{--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>--}}
+{{--<script src='https://www.google.com/recaptcha/api.js'></script>--}}
+{{--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>--}}
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-{{--+++++++=================++++++++++++============+++++++++--}}
 
-
-<!-- Scripts -->
 </body>
 </html>
