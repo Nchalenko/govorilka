@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-Route::get('/posts/create', 'PostController@create')->middleware('admin');;
+Route::get('/admin/posts/create', 'PostController@create')->middleware('admin');;
 
 Route::get('/article', 'HomeController@article')->name('post');
 Route::get('/about', 'HomeController@about')->name('about');
@@ -32,8 +32,6 @@ Route::get('/posts/{post}/edit', 'PostController@edit')->name('post_edit');
 
 Route::delete('/posts/{post}', 'PostController@delete');
 Route::get('/', 'PostController@index')->name('home');
-
-
 
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 Route::get('/admin/posts', 'AdminController@posts')->name('admin_posts')->middleware('admin');

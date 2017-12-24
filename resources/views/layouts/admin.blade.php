@@ -26,10 +26,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">{{ config('app.name') }}</a>
+            <a class="navbar-brand" href="/">{{ config('app.name') }}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <li><a href="/admin/posts/create">Добавить пост</a></li>
                 <li><a href="/admin/posts">Посты</a></li>
                 <li><a href="/admin/about">О нас</a></li>
                 <li><a href="/admin/contacts">Обратная связь</a></li>

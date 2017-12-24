@@ -9,7 +9,6 @@ use Auth;
 
 class CommentController extends Controller
 {
-
     public         $secret       = '6LcsqTgUAAAAANyv7ohJrVsvapxEuuMl37OXsxe_';
 
     public function comment(Post $post)

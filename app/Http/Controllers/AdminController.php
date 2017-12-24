@@ -11,7 +11,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin_index');
+        return redirect('admin/posts');
     }
 
     public function posts()

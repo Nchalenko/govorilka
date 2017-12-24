@@ -12,39 +12,9 @@ class PostController extends Controller
     {
         $posts = [];
 
-        foreach (Post::all() as $key => $post) {
-//            if ($key < 3) {
-//            $posts[$key]['big_image'] = $post->id . '__big_image.jpg';
-//            $posts[$key]['circle_image'] = $post->id . '__circle_image.jpg';
-//            $posts[$key]['500_image'] = $post->id . '__500_image.jpg';
-                $posts[$key] = $post;
-                $posts[$key]['big_image'] = '1__big_image.jpg';
-                $posts[$key]['circle_image'] = '1__circle_image.jpg';
-                $posts[$key]['500_image'] = '1__500_image.jpg';
-//            }
+        foreach (Post::all()->where('is_active', 1) as $key => $post) {
+            $posts[$key] = $post;
         }
-
-
-//        error_log(print_r($posts,1));
-
-//        $posts = $posts->all();
-
-
-
-//        $result = [
-//            'big_image' => $posts,
-//            'circle_image' => [],
-//            '500_image' => []
-//        ];
-
-//        for ($i = 1; $i < count($posts); $i++) {
-//            if ($i % 2 === true) {
-//                $result['circle_image'] = $posts[$i];
-//            } else {
-//                $result['500_image'] = $posts[$i];
-//            }
-//        }
-//        $posts = $result;
 
         return view('home', compact('posts'));
     }
