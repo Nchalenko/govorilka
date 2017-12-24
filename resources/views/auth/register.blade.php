@@ -25,17 +25,18 @@
                             </div>
                         </div>
 
+                        {{--<div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">--}}
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <label for="last_name" class="col-md-4 control-label">last_name</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" autofocus>
 
-                                @if ($errors->has('last_name'))
-                                    <span class="help-block">
+                                {{--@if ($errors->has('last_name'))--}}
+                                    {{--<span class="help-block">--}}
                                         <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @endif
+                                    {{--</span>--}}
+                                {{--@endif--}}
                             </div>
                         </div>
 
@@ -57,13 +58,13 @@
                             <label for="phone" class="col-md-4 control-label">phone</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" autofocus>
 
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
+                                {{--@if ($errors->has('phone'))--}}
+                                    {{--<span class="help-block">--}}
+                                        {{--<strong>{{ $errors->first('phone') }}</strong>--}}
+                                    {{--</span>--}}
+                                {{--@endif--}}
                             </div>
                         </div>
 
