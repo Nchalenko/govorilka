@@ -24,14 +24,14 @@
 @endif
 <div class="row">
     <div class="col-lg-6 col-lg-offset-2">
-        <form id="contact-form" method="post" action="{{route('comment', $post->id)}}" role="form">
+        <form id="contact-form" method="post" action="{{route('comment', $post->id)}}" role="form" onsubmit="return (typeof submitted == 'undefined') ? (submitted = true) : !submitted">
             {{ csrf_field() }}
             <div class="controls">
                 <div class="row">
                     <div class="col-md-10">
                         <div class="form-group">
                             <textarea id="form_comment" name="comment" class="form-control"
-                                      minlength="15"
+                                      minlength="15" maxlength="500"
                                       placeholder="Оставьте свой комментарий" rows="4" required="required"
                                       data-error="Пожалуйста, оставьте здесь свой комментарий."></textarea>
                             <div class="help-block with-errors"></div>
