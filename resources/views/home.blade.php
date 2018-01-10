@@ -30,13 +30,17 @@
 
     <div class="container marketing">
         <div class="row">
-            @foreach(array_slice($posts, 0, 3) as $post)
-                <div class="col-lg-4">
-                    <img class="img-circle" src="{{ URL::asset('/images/' . $post->id . '__circle_image.jpg') }}" alt="Generic placeholder image" width="140" height="140">
-                    <h1>{!! $post->title !!}</h1>
-                    <p>{!! $post->header !!}</p>
-                    <p><a class="btn btn-default" href="/posts/{{ $post->id }}" role="button">Читать &raquo;</a></p>
-                </div>
+            @php($i = 0)
+            @foreach($posts as $post)
+                @if($post->circle && $i < 3)
+                    @php($i++)
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="{{ URL::asset('/images/' . $post->id . '__circle_image.jpg') }}" alt="Generic placeholder image" width="140" height="140">
+                        <h1>{!! $post->title !!}</h1>
+                        <p>{!! $post->header !!}</p>
+                        <p><a class="btn btn-default" href="/posts/{{ $post->id }}" role="button">Читать &raquo;</a></p>
+                    </div>
+                @endif
             @endforeach
         </div>
         @php($i = 0)

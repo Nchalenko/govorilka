@@ -14,6 +14,9 @@ class PostController extends Controller
 
         foreach (Post::all()->where('is_active', 1) as $key => $post) {
             $posts[$key] = $post;
+            if (strlen($post->header) < 70 && strlen($post->title) < 80) {
+                $posts[$key]['circle'] = true;
+            }
         }
 
         return view('home', compact('posts'));
