@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="{{ URL::asset('/images/icon.ico') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
@@ -34,7 +34,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/about">О нас</a></li>
+                        <li><a href="/about">Обо мне</a></li>
                         <li><a href="/contact">Обратная связь</a></li>
                         {{--<li class="dropdown">--}}
                             {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"--}}
@@ -54,8 +54,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Войти</a></li>
+                            <li><a href="{{ route('register') }}">Регистрация</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -64,7 +64,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Выйти
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -87,7 +87,7 @@
     <!-- FOOTER -->
     <footer style="margin-top: 50px;">
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; {{ date('Y') }} {{ config('app.name') }}, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; {{ date('Y') }} {{ config('app.name') }}</p>
     </footer>
 
 </div>

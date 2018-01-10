@@ -4,7 +4,7 @@
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
-            @php($random = array_rand($posts))
+            @php($random = count($posts) ? array_rand($posts) : '')
             @foreach($posts as $key => $post)
                 <div class="item @if ($key == $random) active @endif">
                     <img src="{{ URL::asset('/images/' . $post->id . '__big_image.jpg') }}" alt="First slide">

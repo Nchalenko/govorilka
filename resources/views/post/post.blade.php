@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-sm-8 blog-main" style="margin-left: 20%;">
                 <div class="blog-post">
-                    <p class="blog-post-meta"><b>{{ date('l jS \of F Y h:i:s A')}} by <a href="#">Dina</a></b></p>
+                    <p class="blog-post-meta"><b>{{ date('l jS \of F Y h:i:s A')}} by <a href="#">Дина</a></b></p>
                     <br>
 
                     {!! $post->body !!}
