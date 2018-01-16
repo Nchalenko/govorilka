@@ -40,11 +40,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 blog-main" style="margin-left: 20%;">
-                <div class="blog-post">
-                    <br>
-                    <hr>
-                    <b><em>Отзывы о моей работе можно просмотреть <a target="_blank" href="http://kiev.repetitors.info/comments.php?p=GlibkaDV">здесь</a></em></b>
-                </div><!-- /.blog-post -->
+                {{--<div class="blog-post">--}}
+                    {{--<br>--}}
+                    {{--<hr>--}}
+                    {{--<b><em>Отзывы о моей работе можно просмотреть <a target="_blank" href="http://kiev.repetitors.info/comments.php?p=GlibkaDV">здесь</a></em></b>--}}
+                {{--</div><!-- /.blog-post -->--}}
             </div><!-- /.blog-main -->
         </div>
     </div>
