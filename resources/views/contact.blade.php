@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1 id="name">Свяжитесь с нами</h1>
-                        <p class="header lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi eius eveniet exercitationem illum impedit iure non, odit officiis porro praesentium, quidem rem repellat similique ullam ut vel voluptate!</p>
+                        <p class="header lead">Если Вы найдете здесь что-то полезное для себя - буду рада. А если решите, что я могу помочь Вам в решении проблемы - добро пожаловать! Пишите! </p>
                     </div>
                 </div>
             </div>
@@ -56,5 +56,11 @@
             </div><!-- /.8 -->
         </div> <!-- /.row-->
     </div> <!-- /.container-->
+
+    {{--<script>--}}
+        {{--$('#contact-form input.btn-send').on('click', function () {--}}
+            {{--$('#contact-form input.btn-send').hide();--}}
+        {{--});--}}
+    {{--</script>--}}
 
 @endsection

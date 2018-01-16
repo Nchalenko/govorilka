@@ -86,6 +86,11 @@
 
     <!-- FOOTER -->
     <footer style="margin-top: 50px;">
+        <p>Контакты:</p>
+        {{--<p>Skype:</p>--}}
+        <p>Email: <a type="mailto">govorilka.dina@gmail.com</a></p>
+        <p>Viber/Telegram: <a type="tel">+380992082455</a></p>
+        <hr>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; {{ date('Y') }} {{ config('app.name') }}</p>
     </footer>
