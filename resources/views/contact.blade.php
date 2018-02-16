@@ -19,7 +19,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <form id="contact-form" method="post" action="{{route('contact')}}" role="form" style="padding-left: 15%">
+                <form id="contact-form"
+                      {{--method="post" action="{{route('contact')}}" --}}
+                      role="form" style="padding-left: 15%">
                     {{ csrf_field() }}
                     <div class="messages"></div>
                     <div class="controls">
@@ -56,11 +58,5 @@
             </div><!-- /.8 -->
         </div> <!-- /.row-->
     </div> <!-- /.container-->
-
-    {{--<script>--}}
-        {{--$('#contact-form input.btn-send').on('click', function () {--}}
-            {{--$('#contact-form input.btn-send').hide();--}}
-        {{--});--}}
-    {{--</script>--}}
 
 @endsection

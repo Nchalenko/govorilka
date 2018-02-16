@@ -40,25 +40,41 @@ $('#title').keyup(function () {
     $('.carousel-caption #name').html(content);
 });
 
-// $('input[name=send_comment]').on('click', function () {
-//     $.ajax({
-//         type: "POST",
-//         url: $(location).attr('href') + '/comment',
-//         data: {
-//             id: 2,
-//             comment: $('textarea[name=comment]').val(),
-//             _token: $('input[name=_token]').val(),
-//             // g-recaptcha-response: $(g-recaptcha').getResponse()
-//
-//             // g-recaptcha-respons:
-//         },
-//         success: function (success) {
-//             console.log(success);
-//             $('.comment:last').clone().insertAfter('.comment:last');
-//             $('.comment:last .panel-heading strong').html('Anonim');
-//             $('.comment:last .panel-heading .text-muted').html('Just Now');
-//             $('.comment:last .panel-body.comment-body').html($('textarea[name=comment]').val());
-//         },
-//         dataType: "json"
-//     });
+
+// $('#contact-form .btn-send').click(() => {
+//     console.log('CLICK');
+//     if (validateEmail($('#form_email').val()) && $('#form_first_name').val().length && $('#form_message').length) {
+//         console.log('GOOD');
+//         $('#contact-form .btn-send').attr('disabled', true);
+//     }
 // });
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+$('#contact-form .btn-send').on('click', function () {
+    console.log(123);
+    $.ajax({
+        type: "POST",
+        url: 'contact',
+        data: {
+            email: validateEmail($('#form_email').val()) ? $('#form_email').val() : false,
+            first_name: $('#form_first_name').val(),
+            message: $('#form_message').val(),
+            _token: $('#contact-form input[name=_token]').val(),
+            // g-recaptcha-response: $(g-recaptcha').getResponse()
+
+            // g-recaptcha-respons:
+        },
+        success: function (success) {
+            console.log(success);
+            $('.comment:last').clone().insertAfter('.comment:last');
+            $('.comment:last .panel-heading strong').html('Anonim');
+            $('.comment:last .panel-heading .text-muted').html('Just Now');
+            $('.comment:last .panel-body.comment-body').html($('textarea[name=comment]').val());
+        },
+        dataType: "json"
+    });
+});

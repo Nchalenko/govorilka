@@ -14,7 +14,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/3.3/examples/carousel/carousel.css" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
 
@@ -96,7 +95,7 @@
     </footer>
 
 </div>
-
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
 {{--<script src='https://www.google.com/recaptcha/api.js'></script>--}}
 {{--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>--}}
